@@ -70,8 +70,9 @@ def create_spark_connection():
         s_conn = SparkSession.builder \
             .appName('SparkDataStreaming') \
             .config('spark.cassandra.connection.host', 'localhost') \
-            .config('spark.jars.packages', "com.datastax.spark:spark-cassandra-connector_2.12:3.5.1,"
-                                           "org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.5") \
+            .config('spark.jars.packages', "com.datastax.spark:spark-cassandra-connector_2.12:3.4.1,"
+                                           "org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.1,"
+                                           "org.apache.kafka:kafka-clients:3.5.1") \
             .getOrCreate()
 
         s_conn.sparkContext.setLogLevel("ERROR")
